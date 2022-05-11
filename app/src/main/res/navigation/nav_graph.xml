@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstFrag">
+
+    <fragment
+        android:id="@+id/firstFrag"
+        android:name="com.example.hw6a.FirstFrag"
+        android:label="First"
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_firstFrag_to_secondFrag"
+            app:destination="@id/navigation" />
+        <action
+            android:id="@+id/action_firstFrag_to_thirdFrag"
+            app:destination="@id/thirdFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdFrag"
+        android:name="com.example.hw6a.ThirdFrag"
+        android:label="Third"
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/action_thirdFrag_to_firstFrag"
+            app:destination="@id/firstFrag"
+            app:popUpTo="@id/firstFrag"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/secondFrag">
+        <fragment
+            android:id="@+id/fourthFrag"
+            android:name="com.example.hw6a.FourthFrag"
+            android:label="Fourth"
+            tools:layout="@layout/fragment_fourth">
+            <action
+                android:id="@+id/action_fourthFrag_to_firstFrag"
+                app:destination="@id/firstFrag"
+                app:popUpTo="@id/firstFrag"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/secondFrag"
+            android:name="com.example.hw6a.SecondFrag"
+            android:label="Second"
+            tools:layout="@layout/fragment_second">
+            <action
+                android:id="@+id/action_secondFrag_to_fourthFrag"
+                app:destination="@id/fourthFrag" />
+        </fragment>
+    </navigation>
+</navigation>
