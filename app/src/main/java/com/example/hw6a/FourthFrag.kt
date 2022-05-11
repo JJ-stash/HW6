@@ -6,9 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 
 class FourthFrag : Fragment() {
+
+    private lateinit var nameTake: TextView
+    private val args: FourthFragArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -19,6 +25,8 @@ class FourthFrag : Fragment() {
         button4.setOnClickListener {
             findNavController().navigate(R.id.action_fourthFrag_to_firstFrag)
         }
+
+        nameTake.text = args.name
 
         return view
     }
