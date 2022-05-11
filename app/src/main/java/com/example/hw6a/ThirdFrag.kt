@@ -6,9 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 
 class ThirdFrag : Fragment() {
+
+    private val args: ThirdFragArgs by navArgs()
+    private lateinit var deepArgHere: EditText
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -19,6 +26,9 @@ class ThirdFrag : Fragment() {
         button3.setOnClickListener {
             findNavController().navigate(R.id.action_thirdFrag_to_firstFrag)
         }
+
+        val deepArg = args.deeparg
+        deepArgHere.setText(deepArg)
 
         return view
     }
